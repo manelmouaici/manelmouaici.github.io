@@ -157,6 +157,20 @@ nav{position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);z-index:20;bac
 .btn{will-change:transform}
 @media (prefers-reduced-motion:reduce){.cur-ring,.cur-dot,.cur-glow{display:none!important}.card{transition:none}}
 
+
+.menu-btn{display:none;font:600 14px var(--body);background:var(--accent);color:var(--accent-ink);border:0;border-radius:999px;padding:8px 16px;cursor:pointer}
+@media (max-width:700px){
+  nav{flex-wrap:nowrap;padding:8px 8px 8px 18px;border-radius:999px}
+  .menu-btn{display:block}
+  .navlinks{display:none;position:absolute;left:0;right:0;top:calc(100% + 8px);flex-direction:column;gap:2px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:10px}
+  nav.open .navlinks{display:flex}
+  .navlinks a{padding:10px 12px;border-radius:10px;font-size:16px}
+  .navlinks a[href="#contact"]{text-align:center}
+  .portrait figcaption{right:-8px;bottom:-14px;padding:8px 12px}
+  .portrait figcaption b{font-size:18px}
+  .located{left:-8px;top:10px}
+}
+
 /* récit */
 .st-cap{position:absolute;left:14px;bottom:14px;max-width:min(360px,70%);background:rgba(13,16,21,.85);border-left:3px solid var(--accent);padding:10px 14px;border-radius:4px;z-index:2}
 .st-cap span{display:block;font:600 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
@@ -210,7 +224,8 @@ nav{position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);z-index:20;bac
 <div class="wrap">
   <nav aria-label="Navigation principale">
     <a class="logo" href="#top">Manel<span>.</span></a>
-    <div class="navlinks">
+    <button type="button" class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="navlinks">Menu</button>
+    <div class="navlinks" id="navlinks">
       <a href="#recit">Mon parcours</a><a href="#projets">Projets</a><a href="#parcours">Parcours</a><a href="#competences">Compétences</a><a href="#contact">Contact</a>
     </div>
   </nav>
@@ -675,6 +690,12 @@ nav{position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);z-index:20;bac
     b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect(),x=e.clientX-r.left-r.width/2,y=e.clientY-r.top-r.height/2;b.style.transform='translate('+x*.18+'px,'+y*.28+'px)'});
     b.addEventListener('mouseleave',function(){b.style.transform=''})});
   document.addEventListener('mouseleave',function(){mx=my=-100});
+})();
+</script>
+<script>
+(function(){var n=document.querySelector('nav'),b=document.getElementById('menu-btn');if(!b)return;
+  b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);b.textContent=o?'Fermer':'Menu'});
+  n.querySelectorAll('.navlinks a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open');b.setAttribute('aria-expanded','false');b.textContent='Menu'})});
 })();
 </script>
 
