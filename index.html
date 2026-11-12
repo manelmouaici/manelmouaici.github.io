@@ -12,9 +12,9 @@
 <style>
 /* Layout: une colonne éditoriale, hero en deux parties (texte + portrait), projets en grille filtrable par domaine */
 :root{
-  /* thème unique sombre, accent rose pâle */
+  /* thème unique sombre, accent bleu cyan */
   --bg:#0c0f14; --surface:#141920; --ink:#eef1f5; --muted:#9aa5b1; --line:#252c36;
-  --accent:#f7b9d2; --accent-ink:#1a0f15; --accent-soft:#251a22; --chip:#1c222a; --grid:rgba(247,185,210,.045);
+  --accent:#7dd3fc; --accent-ink:#06202c; --accent-soft:#122230; --chip:#1c222a; --grid:rgba(125,211,252,.045);
   --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
   --body:"Inter","Segoe UI",system-ui,sans-serif;
   --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
@@ -146,11 +146,11 @@ nav{position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);z-index:20;bac
 .cur-dot{width:6px;height:6px;margin:-3px 0 0 -3px;border-radius:50%;background:var(--accent)}
 .cur-ring{width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;border:1.5px solid var(--accent);opacity:.7;transition:width .25s,height .25s,margin .25s,background .25s,opacity .25s}
 .cur-ring.big{width:64px;height:64px;margin:-32px 0 0 -32px;background:color-mix(in srgb,var(--accent) 14%,transparent);opacity:1}
-.cur-glow{width:620px;height:620px;margin:-310px 0 0 -310px;border-radius:50%;z-index:0;background:radial-gradient(circle,rgba(247,185,210,.24),rgba(247,185,210,.08) 40%,transparent 68%)}
+.cur-glow{width:620px;height:620px;margin:-310px 0 0 -310px;border-radius:50%;z-index:0;background:radial-gradient(circle,rgba(125,211,252,.24),rgba(125,211,252,.08) 40%,transparent 68%)}
 @media (hover:hover) and (pointer:fine){.cur-ring,.cur-dot,.cur-glow{display:block}}
 .card{position:relative;overflow:hidden;transition:transform .25s ease,border-color .25s}
 .card::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;
-  background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%),rgba(247,185,210,.22),transparent 60%)}
+  background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%),rgba(125,211,252,.22),transparent 60%)}
 .card:hover::before{opacity:1}
 .card:hover{border-color:color-mix(in srgb,var(--accent) 45%,var(--line))}
 .card>*{position:relative}
